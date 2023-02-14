@@ -1,6 +1,7 @@
 package main
 
 import (
+	"ioutil"
 	"fmt"
 	"html/template"
 	"log"
@@ -93,7 +94,7 @@ func GetData(w http.ResponseWriter, r *http.Request) {
 func PrintAscii(text, font string) string {
 	var file = []byte{}
 
-	fonts := os.ReadFile(font)
+	fonts := ioutil.ReadFile(font)
 	file, err := fonts
 	if err != nil {
 		return ""
